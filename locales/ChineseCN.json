@@ -1,14 +1,14 @@
 {
 	"cmd": {
 		"247": {
-			"description": "Configure le bot pour qu'il reste dans le salon vocal.",
+			"description": "Configure the bot to stay in the voice channel.",
 			"errors": {
-				"not_in_voice": "`❌` | Vous devez être dans un salon vocal pour utiliser cette commande.",
-				"generic": "`❌` | Une erreur s'est produite lors de l'exécution de cette commande."
+				"not_in_voice": "`❌` | You must be in a voice channel to use this command.",
+				"generic": "`❌` | An error occurred while executing this command."
 			},
 			"messages": {
-				"disabled": "`✅` | Le mode 24/7 a été **désactivé**.",
-				"enabled": "`✅` | Le mode 24/7 a été **activé**. \n`🎧` Le bot restera dans le salon vocal, même s'il n'y a plus personne."
+				"disabled": "`✅` | 24/7 mode has been **disabled**.",
+				"enabled": "`✅` | 24/7 mode has been **enabled**. \n`🎧` The bot will stay in the voice channel, even if no one is there."
 			}
 		},
 		"ping": {
@@ -17,12 +17,6 @@
 			"bot_latency": "Bot Latency:",
 			"api_latency": "API Latency:",
 			"requested_by": "Requested by: {author}"
-		},
-		"lavalink": {
-			"description": "Displays the current Lavalink statistics.",
-			"title": "⚙️ Lavalink Statistics",
-			"content": "Players: {players}\nPlaying Players: {playingPlayers}\nUptime: {uptime}\nCores: {cores} Core(s)\nMemory Usage: {usedMemory} / {reservableMemory}\nSystem Load: {systemLoad}%\nLavalink Load: {lavalinkLoad}%",
-			"page_info": "Page {index} of {total}"
 		},
 		"invite": {
 			"description": "Get the bot's invite link.",
@@ -177,13 +171,15 @@
 			},
 			"errors": {
 				"invalid_language": "`❌` | Please provide a valid language. Example: `EnglishUS` for English (United States)\n\nYou can find the list of supported languages [here](https://discord.com/developers/docs/reference#locales)\n\n**Available Languages:**\n{languages}",
-				"not_set": "`❌` | The language is not set."
+				"not_set": "`❌` | The language is not set.",
+				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
 			},
 			"messages": {
 				"already_set": "The language is already set to `{language}`.",
 				"set": "`✅` | The language has been set to `{language}`.",
 				"reset": "`✅` | The language has been reset."
-			}
+			},
+			"subcommands": "Subcommands"
 		},
 		"settings": {
 			"description": "Manage server settings.",
@@ -252,13 +248,14 @@
 			},
 			"errors": {
 				"invalid_number": "`❌` | The volume you entered is not a valid number.",
-				"too_low": "`❌` | The volume is too low. It must be at least 0.",
-				"too_high": "`❌` | The volume is too high. It cannot exceed 200."
+				"too_low": "`❌` | The volume is too low. It must be at least `0`.",
+				"too_high": "`❌` | The volume is too high. It cannot exceed `200`.",
+				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
 			},
 			"messages": {
-				"set": "`🔊` | The default volume has been set to {volume}.",
-				"reset": "The default volume has been reset to {volume}.",
-				"current": "`🔊` | The current default volume is {volume}."
+				"set": "`🔊` | The default volume has been set to `{volume}`.",
+				"reset": "The default volume has been reset to `{volume}`.",
+				"current": "`🔊` | The current default volume is `{volume}`."
 			}
 		},
 		"setup": {
@@ -278,7 +275,9 @@
 				"channel_created": "`🎉` | The song request channel has been created in <#{channelId}>.",
 				"channel_deleted": "`🗑️` | The song request channel has been deleted.",
 				"channel_info": "`🎤` | The song request channel is <#{channelId}>."
-			}
+			},
+			"topic": "Song requests for the music bot.",
+			"subcommands": "Subcommands"
 		},
 		"captcha": {
 			"description": "Configure the captcha bot.",
@@ -333,7 +332,8 @@
 				"low": "`✅` | Low Bass Boost Filter is **enabled**.",
 				"medium": "`✅` | Medium Bass Boost Filter is **enabled**.",
 				"off": "`✅` | Bass boost filter is **disabled**."
-			}
+			},
+			"subcommands": "Subcommands"
 		},
 		"karaoke": {
 			"description": "Toggles the karaoke filter.",
@@ -472,7 +472,8 @@
 			"loading": "`⏳` Loading...",
 			"description": "Gets the currently playing song in your DMs.",
 			"content": "`🎧` **Current Song**\n\n**Title:** {title}\n**Duration:** {length}\n**Requested by:** <@{requester}>\n**Link:** [Click Here]({uri})",
-			"check_dm": "`📨` | Please check your DMs."
+			"check_dm": "`📨` | Please check your DMs.",
+			"live": "LIVE"
 		},
 		"join": {
 			"description": "Join the voice channel.",
@@ -530,7 +531,8 @@
 		"play": {
 			"description": "Play a song from Spotify, Deezer, Apple, SoundCloud or JioSaavn.",
 			"options": {
-				"song": "The song you want to play."
+				"song": "The song you want to play.",
+				"sources": "cmd.play.options.sources"
 			},
 			"errors": {
 				"search_error": "`❌` | An error occurred while searching."
@@ -579,7 +581,7 @@
 				"invalid_number": "`❌` | Please provide a valid song number."
 			},
 			"messages": {
-				"removed": "`🗑️` | Song number {songNumber} removed from the queue."
+				"removed": "`🗑️` | Song number **{songNumber}** - **{title}** by **{author}** removed from the queue."
 			}
 		},
 		"replay": {
@@ -614,7 +616,8 @@
 				"added_to_queue": "`🎶` | Adding [{title}]({uri}) to the queue.",
 				"description": "`🔎` | Here are `{maxTracks}` tracks based on your search `{query}`. Please choose the one that suits you.",
 				"trackselect": "Choose a track"
-			}
+			},
+			"live": "LIVE"
 		},
 		"seek": {
 			"description": "Seeks to a specific time in the song.",
@@ -709,8 +712,8 @@
 				"name": "The name of the playlist."
 			},
 			"errors": {
-				"name_too_short": "`❌` | The playlist name must be at least 3 characters long.",
-				"name_too_long": "`❌` | Playlist names cannot exceed 50 characters.",
+				"invalid_name": "`❌` | You must provide a valid name for the playlist.",
+				"invalid_name_length": "`❌` | The playlist name must be between {min} and {max} characters long.",
 				"playlist_exists": "`❌` | A playlist with this name already exists. Please use a different name."
 			},
 			"messages": {
@@ -739,7 +742,8 @@
 				"no_playlists": "`❌` | This user has no playlists."
 			},
 			"messages": {
-				"playlists_title": "📃 {username}'s Playlists"
+				"playlists_title": "📃 {username}'s Playlists",
+				"page_footer": "Page {current} of {total}"
 			}
 		},
 		"load": {
@@ -782,7 +786,8 @@
 				"provide_user": "`❌` | Please provide a valid user.",
 				"provide_playlist": "`❌` | Please provide a playlist name.",
 				"playlist_not_exist": "`❌` | This playlist does not exist for the mentioned user.",
-				"playlist_exists": "`❌` | A playlist named **{playlist}** already exists in your collection."
+				"playlist_exists": "`❌` | A playlist named **{playlist}** already exists in your collection.",
+				"playlist_empty": "`❌` | A playlist named **{playlist}** already exists in your collection."
 			},
 			"messages": {
 				"playlist_stolen": "`😈` | Playlist `{playlist}` successfully stolen from {user}."
@@ -807,7 +812,8 @@
 		"enabled": "Enabled",
 		"disabled": "Disabled",
 		"yes": "Yes",
-		"no": "No"
+		"no": "No",
+		"none": "None"
 	},
 	"structures": {
 		"dispatcher": {
@@ -859,7 +865,7 @@
 	"event": {
 		"interaction": {
 			"setup_channel": "You can't use this command in the setup channel.",
-			"no_send_message": "`❌` | I don't have the {missingPermissions} permission in `{guild}`\nchannel: {channel}.",
+			"no_guild_permissions": "`❌` | I don't have the {missingPermissions} permission in `{guild}`.",
 			"no_permission": "`❌` | I don't have the permission {permissions}.",
 			"no_user_permission": "`⚠️` | You don't have enough permissions to use this command.",
 			"no_voice_channel": "`⚠️` | You need to be connected to a voice channel to use this command `{command}`.",
@@ -879,7 +885,8 @@
 			"prefix_mention": "Hello, you can use the prefix `{prefix}`, `panais` as my prefix(es). To discover my commands, type `/help`.",
 			"captchaPassed": "`✅` | Correct answer! You have passed the captcha.",
 			"captchaFalse": "`❌` | Incorrect answer. Please try again.",
-			"no_send_message": "`❌` | I don't have the {missingPermissions} permission in `{guild}`\nchannel: {channel}.",
+			"no_guild_permissions": "`❌` | I don't have the {missingPermissions} permission in `{guild}`.",
+			"no_channels_message": "`❌` | I don't have the {missingPermissions} permission in `{guild}`\nchannel: {channel}.",
 			"no_permission": "`❌` | I don't have the permission {permissions}.",
 			"no_user_permission": "`⚠️` | You don't have enough permissions to use this command.",
 			"no_voice_channel": "`⚠️` | You need to be connected to a voice channel to use this command `{command}`.",
@@ -909,7 +916,6 @@
 			"live": "LIVE",
 			"no_dj_permission": "You need to have the DJ role to use this button.",
 			"volume_set": "`🔊` | Volume set to {vol}%.",
-			"volume_footer": "Volume: {vol}%",
 			"paused": "Paused",
 			"resumed": "Resumed",
 			"pause_resume": "{name} the music.",
