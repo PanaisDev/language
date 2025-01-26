@@ -253,9 +253,9 @@
 				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
 			},
 			"messages": {
-				"set": "`🔊` | The default volume has been set to `{volume}`.",
-				"reset": "The default volume has been reset to `{volume}`.",
-				"current": "`🔊` | The current default volume is `{volume}`."
+				"set": "`🔊` | The default volume has been set to `{volume}%`.",
+				"reset": "The default volume has been reset to `{volume}%`.",
+				"current": "`🔊` | The current default volume is `{volume}%`."
 			}
 		},
 		"setup": {
@@ -668,7 +668,7 @@
 				"no_songs": "`❌` | There are no songs in the queue."
 			},
 			"messages": {
-				"skipped_to": "`⏭️` | Skipped to song number {number}."
+				"skipped_to": "`⏭️` | Skipped to song number `{number}`."
 			}
 		},
 		"stop": {
@@ -692,7 +692,7 @@
 				"too_high": "`❌` | The volume cannot be higher than `200`. Do you want to damage your hearing or your speakers? Hmm, I don't think that's a good idea."
 			},
 			"messages": {
-				"set": "`🔊` | Volume set to {volume}."
+				"set": "`🔊` | Volume set to `{volume}`."
 			}
 		},
 		"addsong": {
@@ -839,13 +839,12 @@
 			"duration": "Duration:",
 			"requested": "Requested by:",
 			"not_connected_to_voice_channel": "You are not connected to <#{channel}> to use these buttons.",
-			"cooldown": "`❌` | Please wait {time} more second(s) before using a button.",
+			"cooldown": "`❌` | Please wait `{time}` more second(s) before using a button.",
 			"need_dj_role": "You need to have the DJ role to use this command.",
 			"no_previous_song": "There is no previous song.",
 			"no_more_songs_in_queue": "There are no more songs in the queue.",
 			"no_replay_song": "Cannot replay this song because it is not seekable.",
-			"no_shuffle_song": "The queue is empty.",
-			"interaction_failed": "player.trackStart.interaction_failed"
+			"no_shuffle_song": "The queue is empty."
 		},
 		"setupStart": {
 			"now_playing": "Now Playing:",
@@ -858,7 +857,6 @@
 			"length": "Queue Track(s)",
 			"author": "Author",
 			"duration": "Duration",
-			"requested_by": "Requested by {requester}",
 			"volume": "Volume",
 			"autoplay": "Autoplay",
 			"loop": "Loop Mode"
@@ -880,7 +878,7 @@
 			"no_premium_or_vote": "`✨` | This command is exclusive to premium users or those who have voted for Panais. To unlock this command, either subscribe to premium for additional features or vote for us on top.gg. Your support is greatly appreciated!",
 			"no_dj_role": "`⚠️` | The DJ role is not set.",
 			"no_dj_permission": "`⚠️` | You need to have the DJ role to use this command.",
-			"cooldown": "`⏳` | Please wait {time} more second(s) before reusing the `{command}` command.",
+			"cooldown": "`⏳` | Please wait `{time}` more second(s) before reusing the `{command}` command.",
 			"error": "`❌` | An error occurred: `{error}`"
 		},
 		"message": {
@@ -915,34 +913,27 @@
 			"now_playing": "Now Playing:",
 			"live": "LIVE",
 			"no_dj_permission": "You need to have the DJ role to use this button.",
-			"volume_set": "`🔊` | Volume set to {vol}%.",
+			"volume_set": "`🔊` | Volume set to `{vol}%`.",
 			"paused": "Paused",
 			"resumed": "Resumed",
 			"pause_resume": "{name} the music.",
-			"pause_resume_footer": "{name} by {displayName}",
 			"no_music_to_skip": "There is no music to skip.",
 			"skipped": "`⏭️` | Music skipped.",
-			"skipped_footer": "Skipped by {displayName}",
 			"stopped": "`⏹️` | Music stopped.",
-			"stopped_footer": "Stopped by {displayName}",
 			"nothing_playing": "No music is playing.",
 			"loop_set": "Loop set to {loop}.",
-			"loop_footer": "Loop set to {loop} by {displayName}",
 			"shuffled": "`🔀` | Queue shuffled.",
 			"no_previous_track": "There is no previous track.",
 			"playing_previous": "`⏮️` | Playing the previous song.",
 			"rewind_limit": "`⚠️` | You cannot rewind the music more than the duration of the song.",
 			"rewinded": "`⏪` | Music rewinded.",
-			"rewind_footer": "Rewinded by {displayName}",
 			"forward_limit": "`⚠️` | You cannot forward the music more than the duration of the song.",
 			"forwarded": "`⏩` | Music forwarded.",
-			"forward_footer": "Forwarded by {displayName}",
 			"button_not_available": "`❌` | This button is not available.",
 			"no_music_playing": "There is no music playing on this server.",
 			"length": "Queue Track(s)",
 			"author": "Author",
 			"duration": "Duration",
-			"requested_by": "Requested by {requester}",
 			"volume": "Volume",
 			"autoplay": "Autoplay",
 			"loop": "Loop Mode"

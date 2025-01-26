@@ -252,9 +252,9 @@
 				"too_high": "`❌` | Le volume est trop élevé. Il ne peut pas dépasser `200`."
 			},
 			"messages": {
-				"set": "`🔊` | Le volume par défaut a été défini sur `{volume}`.",
-				"reset": "Le volume par défaut a été réinitialisé sur `{volume}`.",
-				"current": "`🔊` | Le volume par défaut actuel est `{volume}`."
+				"set": "`🔊` | Le volume par défaut a été défini sur `{volume}%`.",
+				"reset": "Le volume par défaut a été réinitialisé sur `{volume}%`.",
+				"current": "`🔊` | Le volume par défaut actuel est `{volume}%`."
 			}
 		},
 		"setup": {
@@ -832,7 +832,7 @@
 			"duration": "Durée :",
 			"requested": "Demandé par :",
 			"not_connected_to_voice_channel": "Vous n'êtes pas connecté à <#{channel}> pour utiliser ces boutons.",
-			"cooldown": "`❌` | Veuillez attendre {time} seconde(s) de plus avant d'utiliser un bouton.",
+			"cooldown": "`❌` | Veuillez attendre `{time}` seconde(s) de plus avant d'utiliser un bouton.",
 			"need_dj_role": "Vous devez avoir le rôle DJ pour utiliser cette commande.",
 			"no_previous_song": "Il n'y a pas de chanson précédente.",
 			"no_more_songs_in_queue": "Il n'y a plus de chanson dans la file d'attente.",
@@ -850,7 +850,6 @@
 			"length": "Piste(s) en file d'attente",
 			"author": "Auteur Musique",
 			"duration": "Durée Musique",
-			"requested_by": "Demandé par {requester}",
 			"volume": "Volume",
 			"autoplay": "Autoplay",
 			"loop": "Loop Mode"
@@ -872,7 +871,7 @@
 			"no_premium_or_vote": "`✨` | Cette commande est réservée aux utilisateurs premium ou à ceux ayant voté pour Panais. Pour débloquer cette commande, abonnez-vous au service premium pour bénéficier de fonctionnalités supplémentaires ou votez pour nous sur top.gg. Votre soutien est grandement apprécié !",
 			"no_dj_role": "`⚠️` | Le rôle DJ n'est pas défini.",
 			"no_dj_permission": "`⚠️` | Vous devez avoir le rôle DJ pour utiliser cette commande.",
-			"cooldown": "`⏳` | Veuillez attendre {time} seconde(s) de plus avant de réutiliser la commande `{command}`.",
+			"cooldown": "`⏳` | Veuillez attendre `{time}` seconde(s) de plus avant de réutiliser la commande `{command}`.",
 			"error": "`❌` | Une erreur s'est produite : `{error}`"
 		},
 		"message": {
@@ -894,7 +893,7 @@
 			"missing_arguments": "`⚠️` | Arguments manquants",
 			"missing_arguments_description": "Veuillez fournir les arguments requis pour la commande `{command}`.\n\nExemples :\n{examples}",
 			"syntax_footer": "Syntaxe : [] = facultatif, <> = requis",
-			"cooldown": "`❌` | Veuillez attendre {time} seconde(s) de plus avant de réutiliser la commande `{command}`.",
+			"cooldown": "`❌` | Veuillez attendre `{time}` seconde(s) de plus avant de réutiliser la commande `{command}`.",
 			"no_mention_everyone": "`⏳` | Vous ne pouvez pas utiliser cette commande avec @everyone ou @here.",
 			"error": "`❌` | Une erreur s'est produite : `{error}`",
 			"no_voice_channel_queue": "`⚠️` | Vous n'êtes pas connecté à un salon vocal pour mettre des chansons en file d'attente.",
@@ -907,34 +906,27 @@
 			"now_playing": "En cours de lecture :",
 			"live": "EN DIRECT",
 			"no_dj_permission": "Vous devez avoir le rôle DJ pour utiliser ce bouton.",
-			"volume_set": "`🔊` | Volume défini à {vol}%.",
+			"volume_set": "`🔊` | Volume défini à `{vol}%`.",
 			"paused": "En pause",
 			"resumed": "Repris",
 			"pause_resume": "{name} la musique.",
-			"pause_resume_footer": "{name} par {displayName}",
 			"no_music_to_skip": "Il n'y a pas de musique à passer.",
 			"skipped": "`⏭️` | Musique passée.",
-			"skipped_footer": "Passé par {displayName}",
 			"stopped": "`⏹️` | Musique arrêtée.",
-			"stopped_footer": "Arrêté par {displayName}",
 			"nothing_playing": "Aucune musique n'est en cours de lecture.",
 			"loop_set": "Boucle définie à {loop}.",
-			"loop_footer": "Boucle définie à {loop} par {displayName}",
 			"shuffled": "`🔀` | File d'attente mélangée.",
 			"no_previous_track": "Il n'y a pas de chanson précédente.",
 			"playing_previous": "`⏮️` | Lecture de la chanson précédente.",
 			"rewind_limit": "`⚠️` | Vous ne pouvez pas rembobiner la musique plus que la durée de la chanson.",
 			"rewinded": "`⏪` | Musique rembobinée.",
-			"rewind_footer": "Rembobiné par {displayName}",
 			"forward_limit": "`⚠️` | Vous ne pouvez pas avancer la musique plus que la durée de la chanson.",
 			"forwarded": "`⏩` | Musique avancée.",
-			"forward_footer": "Avancé par {displayName}",
 			"button_not_available": "`❌` | Ce bouton n'est pas disponible.",
 			"no_music_playing": "Il n'y a pas de musique en cours de lecture sur ce serveur.",
 			"length": "Piste(s) en file d'attente",
 			"author": "Auteur Musique",
 			"duration": "Durée Musique",
-			"requested_by": "Demandé par {requester}",
 			"volume": "Volume",
 			"autoplay": "Autoplay",
 			"loop": "Loop Mode"
