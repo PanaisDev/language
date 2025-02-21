@@ -15,24 +15,23 @@
 			"description": "Displays the bot's ping.",
 			"loading": "`🏓` Calculating ping...",
 			"bot_latency": "Bot Latency:",
-			"api_latency": "API Latency:",
-			"requested_by": "Requested by: {author}"
+			"api_latency": "API Latency:"
 		},
 		"invite": {
 			"description": "Get the bot's invite link.",
-			"content": "`👋` **Invite me to your server!**\n\nClick the button below to add me to your server!\nIn case of bugs or issues, join the support server! `💖`"
+			"content": "`👋` **Invite me to your server!**\n\nClick the button below to add me to your server!\nIn case of bugs or issues, join the support server!"
 		},
 		"vote": {
 			"description": "Get the vote link.",
-			"content": "`👍` **Support Panais by voting!**\n\nClick the button below to vote for me! `😊`"
+			"content": "`👍` **Support Panais by voting!**\n\nClick the button below to vote for me! "
 		},
 		"premium": {
 			"description": "Get the premium link.",
-			"content": "`✨` **Unlock exclusive features and support the bot's development!**\n\nClick the button below to go Premium! `🚀`"
+			"content": "`✨` **Unlock exclusive features and support the bot's development!**\n\nClick the button below to go Premium!"
 		},
 		"support": {
 			"description": "Get the invite link for the support server.",
-			"content": "`💡` **Need help?**\n\nJoin our support server by clicking the button below! `😄`"
+			"content": "`💡` **Need help?**\n\nJoin our support server by clicking the button below!"
 		},
 		"clusters": {
 			"description": "Displays information about the shard clusters.",
@@ -51,7 +50,7 @@
 			"errors": {
 				"role_not_found": "`❌` | Role not found. Please mention a valid role or provide a valid role ID."
 			},
-			"title": "🔎 Role Information: {roleName}",
+			"title": "Role Information: {roleName}",
 			"managed": "Managed by an integration:",
 			"hoisted": "Displayed separately:",
 			"dj_role": "DJ Role:",
@@ -83,11 +82,9 @@
 			"idle": "Idle",
 			"dnd": "Dnd",
 			"bots": "Bots",
-			"roles": "Roles:",
-			"emojis": "Emojis:",
 			"boosts": "Boosts:",
-			"stickers": "Stickers:",
 			"premium_status": "Premium Status:",
+			"top_roles": "Top roles:",
 			"no_description": "No description",
 			"premium_not_activated": "Not activated"
 		},
@@ -119,22 +116,10 @@
 			"errors": {
 				"not_found": "`❌` | This command `{cmdName}` does not exist."
 			},
-			"content": "`👋` Hello! I am <@{bot}>, a music bot. You can use `{prefix}help <command>` to get more information about a command.\n\n`👍` Vote for the bot to unlock features! [Vote Here](https://top.gg/bot/{client}/vote)",
-			"title": "📖 Help Menu",
-			"help_cmd": "**Description:** {description}\n**Usage:** {usage}\n**Examples:** {examples}\n**Alias:** {aliases}\n**Category:** {category}\n**Vote:** {vote}\n**Premium:** {premium}\n**Cooldown:** {cooldown} seconds\n\n**User Permissions:** {premUser}\n**Bot Permissions:** {premBot}\n**Developer Only:** {dev}\n**Slash Command:** {slash}\n**Arguments:** {args}\n\n**Player:** {player}\n**DJ:** {dj}\n**DJ Permissions:** {djPerm}\n**Voice:** {voice}",
-			"footer": "Use {prefix}help <command> for more information about a command."
-		},
-		"botinfo": {
-			"description": "Information about the bot.",
-			"loading": "`⏳` Loading...",
-			"author": "🌐 Panais's Information",
-			"cpu_usage": "CPU Usage (%):",
-			"memory_used": "Memory Used:",
-			"node_version": "Node Version:",
-			"discordjs_version": "Discord.js Version:",
-			"total_guilds": "Total Guilds:",
-			"total_users": "Total Users:",
-			"total_commands": "Total Commands:"
+			"content": "`👋` Hello! I am <@{bot}>, a music bot. You can use `{prefix}help <command>` to get more information about a command.\n\n`👍` Vote for the bot to unlock features! [Vote Here](https://top.gg/bot/{client}/vote) \n\n**Categories**\n {categories}",
+			"command_info": "{description}\n\n**Usage**: {usage}\n**Cooldown**: {cooldown}\n**Alias**: {aliases}\n**User Permissions**: {userPerms}\n**Bot Permissions**: {botPerms}\n\n**Vote Required**: {vote}\n**Premium Required**: {premium}\n**DJ Required**: {dj}\n**DJ Permission**: {djPerm}\n\n**Subcommands** \n{subcommands}",
+			"footer": "Use {prefix}help <command> for more information about a command.",
+			"select_category": "Select a category"
 		},
 		"dj": {
 			"description": "Manage DJ mode and associated roles.",
@@ -709,7 +694,8 @@
 			},
 			"messages": {
 				"added": "`🎶` | Added {count} song(s) to `{playlist}`."
-			}
+			},
+			"loading": "`⏳` Loading..."
 		},
 		"create": {
 			"description": "Creates a playlist.",
@@ -797,8 +783,8 @@
 		}
 	},
 	"buttons": {
-		"invite": "Invite",
-		"support": "Support Server",
+		"invite": "Add Panais on your server",
+		"support": "Join Support Server",
 		"vote": "Vote",
 		"premium": "Premium",
 		"previous": "Previous",
@@ -813,8 +799,6 @@
 	"global": {
 		"enabled": "Enabled",
 		"disabled": "Disabled",
-		"yes": "Yes",
-		"no": "No",
 		"none": "None"
 	},
 	"structures": {
@@ -866,6 +850,7 @@
 		"interaction": {
 			"setup_channel": "You can't use this command in the setup channel.",
 			"no_guild_permissions": "`❌` | I don't have the {missingPermissions} permission in `{guild}`.",
+			"no_channels_message": "`❌` | I don't have the {missingPermissions} permission in `{guild}`\nchannel: {channel}.",
 			"no_permission": "`❌` | I don't have the permission {permissions}.",
 			"no_user_permission": "`⚠️` | You don't have enough permissions to use this command.",
 			"no_voice_channel": "`⚠️` | You need to be connected to a voice channel to use this command `{command}`.",
@@ -913,7 +898,7 @@
 			"now_playing": "Now Playing:",
 			"live": "LIVE",
 			"no_dj_permission": "You need to have the DJ role to use this button.",
-			"volume_set": "`🔊` | Volume set to `{vol}%`.",
+			"volume_set": "`🔊` | Volume set to `{volume}%`.",
 			"paused": "Paused",
 			"resumed": "Resumed",
 			"pause_resume": "{name} the music.",

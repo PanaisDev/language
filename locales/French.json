@@ -15,24 +15,23 @@
 			"description": "Affiche le ping du bot.",
 			"loading": "`🏓` Calcul du ping en cours...",
 			"bot_latency": "Latence du bot :",
-			"api_latency": "Latence de l'API :",
-			"requested_by": "Demandé par : {author}"
+			"api_latency": "Latence de l'API :"
 		},
 		"invite": {
 			"description": "Obtenez le lien d'invitation du bot.",
-			"content": "`👋` **Invitez-moi sur votre serveur !**\n\nCliquez sur le bouton ci-dessous pour m'ajouter à votre serveur !\nEn cas de bugs ou de problèmes, rejoignez le serveur de support ! `💖`"
+			"content": "`👋` **Invitez-moi sur votre serveur !**\n\nCliquez sur le bouton ci-dessous pour m'ajouter à votre serveur !\nEn cas de bugs ou de problèmes, rejoignez le serveur de support !"
 		},
 		"vote": {
 			"description": "Obtenez le lien de vote.",
-			"content": "`👍` **Soutenez Panais en votant !**\n\nCliquez sur le bouton ci-dessous pour voter pour moi ! `😊`"
+			"content": "`👍` **Soutenez Panais en votant !**\n\nCliquez sur le bouton ci-dessous pour voter pour moi !"
 		},
 		"premium": {
 			"description": "Obtenez le lien premium.",
-			"content": "`✨` **Débloquez des fonctionnalités exclusives et soutenez le développement du bot !**\n\nCliquez sur le bouton ci-dessous pour passer Premium ! `🚀`"
+			"content": "`✨` **Débloquez des fonctionnalités exclusives et soutenez le développement du bot !**\n\nCliquez sur le bouton ci-dessous pour passer Premium !"
 		},
 		"support": {
 			"description": "Obtenez le lien d'invitation pour le serveur de support.",
-			"content": "`💡` **Besoin d'aide ?**\n\nRejoignez notre serveur de support en cliquant sur le bouton ci-dessous ! `😄`"
+			"content": "`💡` **Besoin d'aide ?**\n\nRejoignez notre serveur de support en cliquant sur le bouton ci-dessous !"
 		},
 		"clusters": {
 			"description": "Affiche des informations sur les clusters de shards.",
@@ -51,7 +50,7 @@
 			"errors": {
 				"role_not_found": "`❌` | Rôle introuvable. Veuillez mentionner un rôle valide ou fournir un ID de rôle valide."
 			},
-			"title": "🔎 Informations sur le rôle : {roleName}",
+			"title": "Informations sur le rôle : {roleName}",
 			"managed": "Géré par une intégration :",
 			"hoisted": "Affiché séparément :",
 			"dj_role": "Rôle DJ :",
@@ -83,11 +82,9 @@
 			"idle": "Inactif",
 			"dnd": "Ne pas déranger",
 			"bots": "Bots",
-			"roles": "Rôles :",
-			"emojis": "Emojis :",
 			"boosts": "Boosts :",
-			"stickers": "Stickers :",
 			"premium_status": "Statut Premium :",
+			"top_roles": "Top roles :",
 			"no_description": "Pas de description",
 			"premium_not_activated": "Non activé"
 		},
@@ -119,22 +116,10 @@
 			"errors": {
 				"not_found": "`❌` | Cette commande `{cmdName}` n'existe pas."
 			},
-			"content": "`👋` Bonjour ! Je suis <@{bot}>, un bot musical. Vous pouvez utiliser `{prefix}help <commande>` pour obtenir plus d'informations sur une commande.\n\n`👍` Votez pour le bot pour débloquer des fonctionnalités ! [Voter ici](https://top.gg/bot/{client}/vote)",
-			"title": "📖 Menu d'aide",
-			"help_cmd": "**Description :** {description}\n**Utilisation :** {usage}\n**Exemples :** {examples}\n**Alias :** {aliases}\n**Catégorie :** {category}\n**Vote :** {vote}\n**Premium :** {premium}\n**Cooldown :** {cooldown} secondes\n\n**Permissions utilisateur :** {premUser}\n**Permissions du bot :** {premBot}\n**Développeur uniquement :** {dev}\n**Commande Slash :** {slash}\n**Arguments :** {args}\n\n**Lecteur :** {player}\n**DJ :** {dj}\n**Permissions DJ :** {djPerm}\n**Voix :** {voice}",
-			"footer": "Utilisez {prefix}help <commande> pour plus d'informations sur une commande."
-		},
-		"botinfo": {
-			"description": "Informations sur le bot.",
-			"loading": "`⏳` Chargement en cours...",
-			"author": "🌐 Informations de Panais",
-			"cpu_usage": "Utilisation du CPU (%):",
-			"memory_used": "Mémoire utilisée :",
-			"node_version": "Version de Node :",
-			"discordjs_version": "Version de Discord.js :",
-			"total_guilds": "Total de serveurs :",
-			"total_users": "Total d'utilisateurs :",
-			"total_commands": "Total de commandes :"
+			"content": "`👋` Bonjour ! Je suis <@{bot}>, un bot musical. Vous pouvez utiliser `{prefix}help <commande>` pour obtenir plus d'informations sur une commande.\n\n`👍` Votez pour le bot pour débloquer des fonctionnalités ! [Voter ici](https://top.gg/bot/{client}/vote) \n\n**Catégories**\n {categories}",
+			"command_info": "{description}\n\n**Usage** : {usage}\n**Cooldown** : {cooldown}\n**Alias** : {aliases}\n**Permissions Utilisateur** : {userPerms}\n**Permissions Bot** : {botPerms}\n\n**Vote Requis** : {vote}\n**Premium Requis** : {premium}\n**DJ Requis** : {dj}\n**Permission DJ** : {djPerm}\n\n**Sous-commandes** \n{subcommands}",
+			"footer": "Utilisez {prefix}help <commande> pour plus d'informations sur une commande.",
+			"select_category": "Sélectionnez une catégorie"
 		},
 		"dj": {
 			"description": "Gérer le mode DJ et les rôles associés.",
@@ -708,7 +693,8 @@
 			},
 			"messages": {
 				"added": "`🎶` | {count} chanson(s) ajoutée(s) à `{playlist}`."
-			}
+			},
+			"loading": "`⏳` Chargement en cours..."
 		},
 		"create": {
 			"description": "Crée une playlist.",
@@ -796,8 +782,8 @@
 		}
 	},
 	"buttons": {
-		"invite": "Inviter",
-		"support": "Serveur d'assistance",
+		"invite": "Ajoutez Panais sur votre serveur",
+		"support": "Rejoignez le serveur de support",
 		"vote": "Voter",
 		"premium": "Premium",
 		"previous": "Précédent",
@@ -812,8 +798,6 @@
 	"global": {
 		"enabled": "Activé",
 		"disabled": "Désactivé",
-		"yes": "Oui",
-		"no": "Non",
 		"none": "Aucun"
 	},
 	"player": {
@@ -859,6 +843,7 @@
 		"interaction": {
 			"setup_channel": "Vous ne pouvez pas utiliser cette commande dans le salon de configuration.",
 			"no_guild_permissions": "`❌` | Je n'ai pas la permission {missingPermissions} dans `{guild}`.",
+			"no_channels_message": "`❌` | Je n'ai pas la permission {missingPermissions} dans `{guild}`.\nsalon : {channel}.",
 			"no_permission": "`❌` | Je n'ai pas la permission {permissions}.",
 			"no_user_permission": "`⚠️` | Vous n'avez pas suffisamment de permissions pour utiliser cette commande.",
 			"no_voice_channel": "`⚠️` | Vous devez être connecté à un salon vocal pour utiliser cette commande `{command}`.",
@@ -906,7 +891,7 @@
 			"now_playing": "En cours de lecture :",
 			"live": "EN DIRECT",
 			"no_dj_permission": "Vous devez avoir le rôle DJ pour utiliser ce bouton.",
-			"volume_set": "`🔊` | Volume défini à `{vol}%`.",
+			"volume_set": "`🔊` | Volume défini à `{volume}%`.",
 			"paused": "En pause",
 			"resumed": "Repris",
 			"pause_resume": "{name} la musique.",
