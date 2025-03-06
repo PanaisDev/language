@@ -36,7 +36,6 @@
 		"clusters": {
 			"description": "Displays information about the shard clusters.",
 			"content": "This server is on Shard: **{shard}**",
-			"author": "🌐 Panais's Shards Information",
 			"fields": "Total Stats",
 			"shardname": "Shard {index}",
 			"shardvalue": "Servers: {guildCount}\nUsers: {memberCounts}\nUptime: {uptimes}\nLatency: {pings} ms",
@@ -128,7 +127,9 @@
 				"remove": "The DJ role you want to remove.",
 				"clear": "Clears all DJ roles.",
 				"toggle": "Toggles the DJ role.",
-				"role": "The DJ role."
+				"role": "The DJ role.",
+				"info": "Displays the current DJ mode status and assigned roles.",
+				"list": "Lists all assigned DJ roles."
 			},
 			"errors": {
 				"provide_role": "`❌` | Please provide a role.",
@@ -141,9 +142,12 @@
 				"role_not_found": "The DJ role <@&{roleId}> is not added.",
 				"role_removed": "`🗑️` | The DJ role <@&{roleId}> has been removed.",
 				"all_roles_cleared": "`🧹` | All DJ roles have been cleared.",
-				"toggle": "`🎤` | DJ mode has been `{status}`."
+				"toggle": "`🎤` | DJ mode has been `{status}`.",
+				"info": "DJ Mode: `{status}` \nAssigned DJ Roles: {rolesList}"
 			},
-			"subcommands": "Subcommands"
+			"subcommands": "Subcommands",
+			"title_list": "List of DJ Roles",
+			"title_info": "DJ Mode Information"
 		},
 		"language": {
 			"description": "Set the bot's language.",
@@ -155,7 +159,8 @@
 			"errors": {
 				"invalid_language": "`❌` | Please provide a valid language. Example: `EnglishUS` for English (United States)\n\nYou can find the list of supported languages [here](https://discord.com/developers/docs/reference#locales)\n\n**Available Languages:**\n{languages}",
 				"not_set": "`❌` | The language is not set.",
-				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
+				"invalid_subcommand": "`❌` | Please provide a valid subcommand.",
+				"already_set": "The language is already set to `{language}`."
 			},
 			"messages": {
 				"already_set": "The language is already set to `{language}`.",
@@ -176,7 +181,7 @@
 			"errors": {
 				"invalid_subcommand": "`❌` | Please provide a valid subcommand.",
 				"reset_error": "`❌` | The `{parameter}` setting could not be reset. Please check the parameter name.",
-				"reset_missing": "`❌` | You must specify a parameter to reset."
+				"invalid_parameter": "`❌` | Paramètre invalide. Veuillez sélectionner une option valide : `volume`, `langue`, `préfixe`, `thème`, `dj` et `all`"
 			},
 			"messages": {
 				"reset_success": "`✅` | The `{parameter}` setting has been reset successfully."
@@ -199,12 +204,14 @@
 				"reset": "Resets the prefix to the default."
 			},
 			"errors": {
-				"prefix_too_long": "`❌` | The prefix cannot be longer than `3` characters."
+				"prefix_too_long": "`❌` | The prefix cannot be longer than `3` characters.",
+				"already_default": "`❌` | The prefix is already set to the default one."
 			},
 			"messages": {
 				"current_prefix": "The prefix for this server is `{prefix}`.",
 				"prefix_set": "The prefix for this server is now `{prefix}`.",
-				"prefix_reset": "The prefix for this server is now `{prefix}`."
+				"prefix_reset": "The prefix for this server is now `{prefix}`.",
+				"already_set ": "The prefix is already set to `{prefix}`."
 			}
 		},
 		"theme": {
@@ -215,14 +222,16 @@
 				"reset": "Reset the theme to default."
 			},
 			"errors": {
-				"default": "`❌` | The current theme is `{currentTheme}`.",
-				"choice": "`❌` | Invalid theme. Available themes are `classic`, `modern` and `modernpro`."
+				"already_set": "`❌` | The theme is already set to `{theme}.",
+				"already_default": "`❌` | The theme is already set to the default value.",
+				"invalid_choice": "`❌` | Invalid theme. Please choose from: `Classic`, `Modern`, `ModernPro`. Current theme: {currentTheme}.",
+				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
 			},
 			"messages": {
-				"currentTheme": "The current theme is `{currentTheme}`.",
 				"set_theme": "`✅` | The theme has been set to `{theme}`.",
 				"reset": "`✅` | The theme has been reset to `{defaultTheme}`."
-			}
+			},
+			"subcommands": "Subcommands"
 		},
 		"defaultvolume": {
 			"description": "Sets or resets the default volume for the server.",
@@ -487,12 +496,13 @@
 		"move": {
 			"description": "Moves a track from one position to another in the queue.",
 			"options": {
-				"current_position": "Current position of the track in the queue.",
-				"new_position": "New position of the track in the queue."
+				"from": "Current position of the track in the queue.",
+				"to": "New position of the track in the queue."
 			},
 			"errors": {
 				"invalid_positions": "`❌` | Please provide valid positions to move a track.",
-				"no_music_playing": "`❌` | No music is currently playing.",
+				"no_song": "`❌` | There are no songs in the queue.",
+				"same_position": "`❌` | You cannot move a song to the same position.",
 				"out_of_bounds": "`❌` | Positions must be between 1 and {length}."
 			},
 			"messages": {
@@ -549,29 +559,33 @@
 		"queue": {
 			"description": "Displays the current queue.",
 			"errors": {
-				"no_music_playing": "`❌` | No music is playing."
+				"no_song": "`❌` | There are no songs in the queue."
 			},
 			"messages": {
-				"now_playing": "Now Playing: [{title}]({uri}) - Requested by: <@{requester}> - Duration: `{duration}`",
-				"track_info": "{index}. [{title}]({uri}) - Requested by: <@{requester}> - Duration: `{duration}`"
+				"now_playing": "`🎵` [{title}]({uri}) - Requested by: <@{requester}> - `{duration}`",
+				"track_info": "{index}. [{title}]({uri}) - Requested by: <@{requester}> - `{duration}`"
 			},
 			"live": "LIVE",
-			"title": "📃 Queue",
+			"title": "Queue",
 			"page_info": "Page {index} of {total}"
 		},
 		"remove": {
 			"description": "Removes a song from the queue.",
 			"options": {
-				"song": "The number of the song you want to remove."
+				"first": "Remove the first song in the queue.",
+				"last": "Remove the last song in the queue.",
+				"position": "Remove a specific song in the queue by position.",
+				"number": "The position of the song to remove."
 			},
 			"errors": {
-				"no_music_playing": "`❌` | No music is playing.",
 				"no_songs": "`❌` | There are no songs in the queue.",
-				"invalid_number": "`❌` | Please provide a valid song number."
+				"invalid_number": "`❌` | Please provide a valid song number.",
+				"invalid_subcommand": "`❌` | Please provide a valid subcommand."
 			},
 			"messages": {
-				"removed": "`🗑️` | Song number `{songNumber}` - `{title}` by `{author}` removed from the queue."
-			}
+				"removed": "`🗑️` | The music `{title}` by `{author}` removed from the queue."
+			},
+			"subcommands": "Subcommands"
 		},
 		"replay": {
 			"description": "Replays the current song.",
@@ -593,6 +607,20 @@
 				"resumed": "`⏯️` | Player resumed."
 			}
 		},
+		"rewind": {
+			"description": "Rewind the current song by a specified number of seconds.",
+			"options": {
+				"time": "Number of seconds to rewind."
+			},
+			"errors": {
+				"no_song": "`❌` | There is no song currently playing.",
+				"not_seekable": "`❌` | This song is not seekable.",
+				"invalid_number": "`❌` | Please provide a valid number of seconds."
+			},
+			"messages": {
+				"rewinded": "`⏪` | Rewinded `{seconds}` seconds."
+			}
+		},
 		"search": {
 			"description": "Searches for a song.",
 			"options": {
@@ -611,7 +639,7 @@
 		"seek": {
 			"description": "Seeks to a specific time in the song.",
 			"options": {
-				"duration": "The duration you want to seek to."
+				"time": "The time you want to seek to."
 			},
 			"errors": {
 				"invalid_format": "`❌` | Invalid time format. Examples: `seek 1m`, `seek 1h 30m`",
@@ -619,13 +647,12 @@
 				"beyond_duration": "`❌` | Cannot seek beyond the song duration of `{length}`."
 			},
 			"messages": {
-				"seeked_to": "`🕐` | Seeked to `{duration}`."
+				"seeked_to": "`🕐` | Seeked to `{time}`."
 			}
 		},
 		"shuffle": {
 			"description": "Shuffles the queue.",
 			"errors": {
-				"no_music_playing": "`❌` | No music is playing.",
 				"no_songs": "`❌` | There are no songs in the queue."
 			},
 			"messages": {
@@ -635,8 +662,7 @@
 		"skip": {
 			"description": "Skips the current song.",
 			"errors": {
-				"no_songs": "`❌` | There are no songs in the queue.",
-				"no_music_playing": "`❌` | No music is playing."
+				"no_songs": "`❌` | There are no songs in the queue."
 			},
 			"messages": {
 				"skipped": "`⏭️` | Skipped song [{title}]({uri})."
@@ -648,7 +674,6 @@
 				"number": "The number of the song you want to skip to."
 			},
 			"errors": {
-				"no_music_playing": "`❌` | No music is playing.",
 				"invalid_number": "`❌` | Please provide a valid number.",
 				"no_songs": "`❌` | There are no songs in the queue."
 			},
@@ -677,7 +702,8 @@
 				"too_high": "`❌` | The volume cannot be higher than `200`. Do you want to damage your hearing or your speakers? Hmm, I don't think that's a good idea."
 			},
 			"messages": {
-				"set": "`🔊` | Volume set to `{volume}`."
+				"set": "`🔊` | Volume set to `{volume}`.",
+				"current": "`🔊` | Current volume: `{volume}`%."
 			}
 		},
 		"addsong": {
@@ -700,15 +726,18 @@
 		"create": {
 			"description": "Creates a playlist.",
 			"options": {
-				"name": "The name of the playlist."
+				"name": "The name of the playlist.",
+				"public": "Should this playlist be public?"
 			},
 			"errors": {
 				"invalid_name_length": "`❌` | The playlist name must be between `{min}` and `{max}` characters long.",
 				"playlist_exists": "`❌` | A playlist with this name already exists. Please use a different name."
 			},
 			"messages": {
-				"playlist_created": "`🎶` | Playlist `{playlistName}` created."
-			}
+				"playlist_created": "Playlist `{playlistName}` has been created! Privacy: **{privacy}**"
+			},
+			"public": "`🌍` Public",
+			"private": "`🔒` Private"
 		},
 		"delete": {
 			"description": "Deletes a playlist.",
@@ -729,10 +758,14 @@
 			},
 			"errors": {
 				"provide_user": "`❌` | Please provide a valid user.",
-				"no_playlists": "`❌` | This user has no playlists."
+				"no_playlists": "`❌` | This user has no playlists.",
+				"no_visible_playlists": "`❌` | {user} has no public playlists."
 			},
-			"playlists_title": "📃 {username}'s Playlists",
-			"page_footer": "Page {current} of {total}"
+			"playlist_entry": "**{index}.** `{name}` - {trackCount} tracks - **Last Updated**: <t:{lastUpdate}:R> - {privacy}",
+			"playlists_title": "{username}'s Playlists",
+			"page_footer": "Page {current} of {total}",
+			"public": "`🌍` Public",
+			"private": "`🔒` Private"
 		},
 		"load": {
 			"description": "Loads a playlist.",
@@ -747,6 +780,40 @@
 				"playlist_loaded": "`🎶` | Playlist `{name}` loaded with `{count}` songs."
 			}
 		},
+		"edit": {
+			"description": "Edit your playlist name or visibility.",
+			"options": {
+				"old_name": "Current playlist name",
+				"new_name": "New playlist name (optional)",
+				"visibility": "Set visibility (true = public, false = private)",
+				"no_old_name": "You must provide the current playlist name!"
+			},
+			"errors": {
+				"not_found": "`❌` | No playlist found with the name `{oldName}`.",
+				"invalid_name_length": "`❌` | The new name must be between {min} and {max} characters."
+			},
+			"messages": {
+				"updated": "`✅` | Playlist `{oldName}` has been updated!\n**New Name:** `{newName}`\n**Visibility:** {privacy}"
+			},
+			"public": "`🌍` Public",
+			"private": "`🔒` Private"
+		},
+		"view": {
+			"description": "Displays the songs in a playlist.",
+			"options": {
+				"playlist": "Playlist name"
+			},
+			"errors": {
+				"playlist_not_exist": "`❌` | This playlist does not exist!",
+				"playlist_empty": "`❌` | This playlist has no songs!"
+			},
+			"messages": {
+				"playlist_info": "{index}. [{title}]({uri}) - `{duration}`"
+			},
+			"title": "Playlist: {playlistName}",
+			"page_footer": "Page {current} of {total}",
+			"live": "LIVE"
+		},
 		"removesong": {
 			"description": "Removes a song from the playlist.",
 			"options": {
@@ -758,7 +825,7 @@
 				"provide_song": "`❌` | Please provide a song.",
 				"playlist_not_exist": "`❌` | This playlist does not exist.",
 				"song_not_found": "`❌` | No matching song found.",
-				"error_occurred": "`❌` | An error occurred while removing the song."
+				"track_not_encoded": "`❌` | Unable to encode this song, please try again."
 			},
 			"messages": {
 				"song_removed": "`🗑️` | Song `{song}` removed from `{playlist}`."
@@ -773,7 +840,9 @@
 			"errors": {
 				"provide_user": "`❌` | Please provide a valid user.",
 				"provide_playlist": "`❌` | Please provide a playlist name.",
+				"user_not_found": "`❌` | Unable to find this user.",
 				"playlist_not_exist": "`❌` | This playlist does not exist for the mentioned user.",
+				"private_playlist": "`❌` | This playlist is private and cannot be copied.",
 				"playlist_exists": "`❌` | A playlist named `{playlist}` already exists in your collection.",
 				"playlist_empty": "`❌` | A playlist named `{playlist}` already exists in your collection."
 			},
@@ -813,8 +882,7 @@
 			"no_channel": "`❌` | You need to be in a voice channel to use this command.",
 			"queue_empty": "`❌` | The queue is empty.",
 			"no_previous": "`❌` | There is no previous song in the queue.",
-			"no_song": "`❌` | There is no song in the queue.",
-			"already_paused": "`❌` | The song is already paused."
+			"no_song": "`❌` | There is no song in the queue."
 		},
 		"trackStart": {
 			"now_playing": "Now Playing:",
